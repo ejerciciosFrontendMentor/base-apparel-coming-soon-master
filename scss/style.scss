@@ -7,24 +7,48 @@
   --color-DarkGrayishRed: #413a3a;
   --color-gardiet1: #ffffff, #fff5f5;
 }
-$padding: 20px;
+$padding: 1.25rem;
+html {
+  font-size: 16px;
+}
+@media screen and (min-width: 2560px) {
+  html {
+    font-size: 30px;
+  }
+}
 body {
   width: 100%;
   min-height: 100vh;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   margin: 0;
   position: relative;
   display: grid;
   place-items: center;
   font-size: 16px;
   font-family: "Josefin Sans", sans-serif;
+}
+.bg {
+  width: 100%;
+  height: 100%;
   @media screen and (min-width: 1300px) {
-    background-image: url(../images/bg-pattern-desktop.svg);
-    background-repeat: no-repeat;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 51.875rem;
+      height: 50rem;
+      z-index: -1;
+      background-image: url(../images/bg-pattern-desktop.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 }
 .main {
   width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, auto);
@@ -32,12 +56,12 @@ body {
   margin: auto;
   @media screen and (min-width: 1300px) {
     grid-template-columns: repeat(2, auto);
-    grid-template-rows: 60px auto;
+    grid-template-rows: 3.75rem auto;
     grid-template-areas: "logo img" "text  img";
   }
 }
 .logo {
-  padding: 20px 15px;
+  padding: 1.25rem 0.9375rem;
   grid-area: logo;
   display: flex;
   justify-content: flex-start;
@@ -47,22 +71,33 @@ body {
     @media screen and (min-width: 1300px) {
       transform: scale(1);
     }
+    @media screen and (min-width: 2560px) {
+      transform: scale(1.6);
+    }
   }
   @media screen and (min-width: 1300px) {
-    padding: 30px 0;
+    padding: 1.875rem 4.375rem;
+  }
+  @media screen and (min-width: 2560px) {
+    padding: 1.875rem 6rem;
   }
 }
 .contImg {
-  width: 375px;
-  height: 250px;
+  width: 23.4375rem;
+  height: 15.625rem;
   grid-area: img;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (min-width: 1300px) {
+    width: 37.5rem;
+    height: 41.875rem;
+  }
   &__img {
     min-width: 100%;
     height: 100%;
     background-image: url(../images/hero-mobile.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
     @media screen and (min-width: 1300px) {
       background-image: url(../images/hero-desktop.jpg);
     }
@@ -75,19 +110,21 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 50px 12px;
+  padding: 3.125rem 0.75rem;
   @media screen and (min-width: 1300px) {
-    height: 500px;
+    width: 46.25rem;
+    height: 31.25rem;
     justify-content: center;
     text-align: left;
     padding: 0;
-    margin-top: 10px;
+    padding-left: 4.375rem;
+    margin-top: 0.625rem;
   }
   &__title {
     font-size: 2rem;
     font-weight: 600;
-    letter-spacing: 10px;
-    line-height: 40px;
+    letter-spacing: 0.625rem;
+    line-height: 2.5rem;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
@@ -96,9 +133,9 @@ body {
     padding-right: $padding;
     @media screen and (min-width: 1300px) {
       font-size: 4rem;
-      line-height: 70px;
+      line-height: 4.375rem;
       padding-left: 0;
-      padding-right: 400px;
+      padding-right: 18.75rem;
     }
   }
   &__titleColor {
@@ -107,16 +144,19 @@ body {
   }
   &__text {
     font-size: 0.9rem;
-    line-height: 20px;
+    line-height: 1.25rem;
     padding-left: $padding;
     padding-right: $padding;
     font-weight: 400;
     color: var(--color-DesaturatedRed);
     @media screen and (min-width: 1300px) {
-      line-height: 25px;
+      line-height: 1.5625rem;
       padding-left: 0;
-      padding-right: 340px;
-      margin: 30px 0;
+      padding-right: 17rem;
+      margin: 1.875rem 0;
+    }
+    @media screen and (min-width: 2560px) {
+      padding-right: 18.75rem;
     }
   }
 }
@@ -126,25 +166,26 @@ body {
     margin-right: auto;
   }
   &__contentInput {
-    width: 310px;
+    width: 19.375rem;
     height: auto;
     position: relative;
     @media screen and (min-width: 1300px) {
-      width: 380px;
+      width: 22rem;
     }
   }
   &__input {
-    width: 280px;
-    height: 40px;
+    width: 17.5rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
     font-weight: 300;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border: 2px solid var(--color-DesaturatedRed);
+    border-radius: 1.25rem;
+    padding-left: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border: 0.125rem solid var(--color-DesaturatedRed);
     color: var(--color-DarkGrayishRed);
     @media screen and (min-width: 1300px) {
-      width: 330px;
+      width: 20.625rem;
     }
     &::placeholder {
       color: var(--color-DesaturatedRed);
@@ -156,14 +197,14 @@ body {
     }
   }
   &__contIcom {
-    width: 40px;
-    height: 44px;
+    width: 2.5rem;
+    height: 2.75rem;
     position: absolute;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 60px;
+    right: 3.75rem;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s;
@@ -173,35 +214,42 @@ body {
     }
   }
   &__btn {
-    width: 60px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 3.75rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
     cursor: pointer;
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 0;
     border: 0;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     background-image: linear-gradient(#f8bfbf, #ee8c8c);
-    box-shadow: 0 0 5px #000;
-    @media screen and (min-width: 1300px) {
-      width: 80px;
+    box-shadow: 0 0 0.3125rem #000;
+    @media screen and (min-width: 2560px) {
+      width: 5rem;
+      padding-top: 0.9375rem;
+      padding-bottom: 0.9375rem;
     }
     &:active {
       background-image: linear-gradient(#fadfdf, #fdc0c0);
-      box-shadow: 0 0 15px #000;
+      box-shadow: 0 0 0.9375rem #000;
+    }
+  }
+  &__icon {
+    @media screen and (min-width: 2560px) {
+      transform: scale(2);
     }
   }
   &__contMsg {
-    width: 260px;
-    padding-left: 35px;
-    transform: translateY(-10px);
+    width: 16.25rem;
+    padding-left: 2.1875rem;
+    transform: translateY(-0.625rem);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s, opacity 0.3s;
     position: absolute;
     @media screen and (min-width: 1300px) {
-      padding-left: 20px;
+      padding-left: 1.25rem;
     }
     &--show {
       transform: translateY(0);
@@ -210,9 +258,9 @@ body {
     }
   }
   &__msg {
-    margin-top: 5px;
+    margin-top: 0.3125rem;
     margin-bottom: 0;
-    font-size: 13px;
+    font-size: 0.8125rem;
     text-align: left;
     color: var(--color-DesaturatedRed);
   }
